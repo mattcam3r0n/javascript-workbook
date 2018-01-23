@@ -80,39 +80,39 @@ console.log('2 + 2 should equal 4: ', sumOfTwoNumbers(2, 2) === 4);
 
 
 // 6. Write a JavaScript program that runs only when 2 things are true.
-function numberIsBetween1And100(num) {
-  return num >= 1 && num <= 100; // inclusive
+function printSomethingWhenBothArgsAreTrue(arg1, arg2) {
+  if (arg1 && arg2) {
+    console.log('Both arguments are true!');
+  }
 }
 
-console.log('\n\nnumberIsBetween1And100');
-console.log('----------------------');
-console.log('90 is between 1 and 100: ', numberIsBetween1And100(90) === true);
-console.log('101 is NOT between 1 and 100: ', numberIsBetween1And100(101) !== true);
-
-
-
+console.log('\n\printSomethingWhenBothArgsAreTrue');
+console.log('--------------------------------');
+printSomethingWhenBothArgsAreTrue(true, false); // should print nothing
+printSomethingWhenBothArgsAreTrue(1, 2); // should print 'both args are true'
 
 // 7. Write a JavaScript program that runs when 1 of 2 things are true.
-function isZeroOrNegative(num) {
-  return num === 0 || num < 0;
+function printSomethingWhenOneArgIsTrue(arg1, arg2) {
+  if (arg1 || arg2) {
+    console.log('At least one argument is true!');
+  }
 }
 
-console.log('\n\nisZeroOrNegative');
-console.log('----------------');
-console.log('-1 is less than zero: ', isZeroOrNegative(-1) === true);
-console.log('0 is zero: ', isZeroOrNegative(0) === true);
-console.log('+1 is not zero or negative: ', isZeroOrNegative(1) !== true);
-
+console.log('\n\printSomethingWhenOneArgIsTrue');
+console.log('-----------------------------');
+printSomethingWhenOneArgIsTrue(true, false); // should print msg
+printSomethingWhenOneArgIsTrue(0, null); // should print nothing
 
 
 
 // 8. Write a JavaScript program that runs when both things are not true.
-function isNotZeroOrNegative(num) {
-  return !(num === 0 || num < 0);
+function printSomethingWhenBothArgsAreFalse(arg1, arg2) {
+  if (!(arg1 || arg2)) {
+    console.log('Neither argument is true!');
+  }
 }
 
-console.log('\n\nisNotZeroOrNegative');
-console.log('-------------------');
-console.log('1 is NOT zero or negative: ', isNotZeroOrNegative(1) === true);
-console.log('-1 IS zero or negative: ', isNotZeroOrNegative(-1) === false);
-console.log('0 IS zero or negative: ', isNotZeroOrNegative(-1) === false);
+console.log('\n\printSomethingWhenBothArgsAreFalse');
+console.log('---------------------------------');
+printSomethingWhenBothArgsAreFalse(true, 0);        // should not print msg
+printSomethingWhenBothArgsAreFalse(null, undefined); // should print msg
