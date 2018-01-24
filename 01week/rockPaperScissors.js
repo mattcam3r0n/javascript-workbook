@@ -7,11 +7,27 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+// a map that defines what beats what. ie, rock beats 
+// scissors, paper beats rock, etc.
+const beats = {
+  "rock": "scissors",
+  "paper": "rock",
+  "scissors": "paper",
+};
 
 function rockPaperScissors(hand1, hand2) {
-
-  // Write code here
-
+  hand1 = hand1.toLowerCase().trim();
+  hand2 = hand2.toLowerCase().trim();
+  // check for tie
+  if (hand1 === hand2) {
+    return "It's a tie!";
+  }
+  // look up what hand1 beats and see if it is hand2.
+  if (beats[hand1] === hand2) {
+    return "Hand one wins!"
+  }
+  // if not, hand 2 wins
+  return "Hand two wins!"
 }
 
 function getPrompt() {
@@ -24,9 +40,7 @@ function getPrompt() {
 }
 
 // Tests
-
 if (typeof describe === 'function') {
-
   describe('#rockPaperScissors()', () => {
     it('should detect a tie', () => {
       assert.equal(rockPaperScissors('rock', 'rock'), "It's a tie!");
